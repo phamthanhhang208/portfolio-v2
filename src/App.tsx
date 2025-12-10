@@ -9,6 +9,7 @@ import {
   WorkExperience,
   Project,
 } from "@/components/section";
+import { Analytics } from "@vercel/analytics/next";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <DockNavigation />
         <Footer />
       </div>
+      <Analytics />
     </ThemeProvider>
   );
 }
