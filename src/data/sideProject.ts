@@ -14,6 +14,12 @@ export const sideProjects = [
     type: "Personal Project",
     link: "https://verifai-web-ashy.vercel.app",
     github: "https://github.com/phamthanhhang208/verifai",
+    customLinks: [
+      {
+        label: "Devpost",
+        url: "https://devpost.com/software/verifai-dutfep",
+      },
+    ],
   },
   {
     title: "ForgeOS",
