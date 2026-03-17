@@ -1,4 +1,4 @@
-import { Github, Globe } from "lucide-react";
+import { ExternalLink, Github, Globe, Trophy } from "lucide-react";
 import { useTheme } from "../theme-provider";
 import { sideProjects } from "@/data";
 import { Button } from "../ui/button";
@@ -30,6 +30,12 @@ export const Project = () => {
                   : "border-gray-200 hover:border-gray-300 hover:shadow-md"
               }`}
             >
+              {"badge" in project && project.badge && (
+                <div className="flex items-center gap-1.5 mb-3 w-fit px-2.5 py-1 rounded-full bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 text-xs font-medium">
+                  <Trophy className="w-3 h-3" />
+                  {project.badge}
+                </div>
+              )}
               <div className="flex items-start justify-between mb-2">
                 <h4 className="text-xl font-semibold flex items-center gap-2">
                   {project.title}
@@ -55,18 +61,20 @@ export const Project = () => {
                       </a>
                     </Button>
                   )}
+                  {"customLinks" in project &&
+                    project.customLinks?.map((cl, i) => (
+                      <Button key={i} variant="ghost" size="sm">
+                        <a
+                          href={cl.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title={cl.label}
+                        >
+                          <ExternalLink />
+                        </a>
+                      </Button>
+                    ))}
                 </h4>
-                {/* {project.type && (
-                  <span
-                    className={`text-xs px-2 py-1 rounded-full ${
-                      isDarkMode
-                        ? "bg-blue-900/30 text-blue-300"
-                        : "bg-blue-100 text-blue-700"
-                    }`}
-                  >
-                    {project.type}
-                  </span>
-                )} */}
               </div>
 
               <p
