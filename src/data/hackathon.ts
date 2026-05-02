@@ -18,12 +18,7 @@ export const hackathons = [
       "Environment orchestration driven by GitLab comments. A GitLab Duo Flow + Agent that monitors pipeline health, detects drift across branches, cherry-picks commits with conflict resolution, promotes/rolls back environments safely, and auto-diagnoses pipeline failures via a Pipeline Doctor.",
     tags: ["GitLab Duo", "Claude", "CI/CD"],
     devpost: "https://devpost.com/software/envsync",
-    customLinks: [
-      {
-        label: "GitLab",
-        url: "https://gitlab.com/gitlab-ai-hackathon/participants/35525051",
-      },
-    ],
+    gitlab: "https://gitlab.com/gitlab-ai-hackathon/participants/35525051",
   },
   {
     title: "ForgeOS",

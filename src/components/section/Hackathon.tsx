@@ -1,4 +1,11 @@
-import { Calendar, ExternalLink, Github, Globe, Trophy } from "lucide-react";
+import {
+  Calendar,
+  ExternalLink,
+  Github,
+  Gitlab,
+  Globe,
+  Trophy,
+} from "lucide-react";
 import { useTheme } from "../theme-provider";
 import { hackathons } from "@/data";
 import { Button } from "../ui/button";
@@ -50,6 +57,17 @@ export const Hackathon = () => {
                       </a>
                     </Button>
                   )}
+                  {"gitlab" in h && h.gitlab && (
+                    <Button variant="ghost" size="sm">
+                      <a
+                        href={h.gitlab}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Gitlab />
+                      </a>
+                    </Button>
+                  )}
                   {"link" in h && h.link && (
                     <Button variant="ghost" size="sm">
                       <a
@@ -73,19 +91,6 @@ export const Hackathon = () => {
                       </a>
                     </Button>
                   )}
-                  {"customLinks" in h &&
-                    h.customLinks?.map((cl, i) => (
-                      <Button key={i} variant="ghost" size="sm">
-                        <a
-                          href={cl.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          title={cl.label}
-                        >
-                          <ExternalLink />
-                        </a>
-                      </Button>
-                    ))}
                 </h4>
               </div>
               <p
