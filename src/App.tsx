@@ -21,8 +21,8 @@ function App() {
         <About />
         <Skill />
         <WorkExperience />
-        <Project />
         <Hackathon />
+        <Project />
         <Certificates />
         <Contact />
         <DockNavigation />

@@ -13,8 +13,8 @@ const navItems = [
   { icon: Home, label: "Home", id: "home" },
   { icon: User, label: "About", id: "about" },
   { icon: Briefcase, label: "Work", id: "work" },
-  { icon: FolderOpen, label: "Projects", id: "projects" },
   { icon: Trophy, label: "Hackathons", id: "hackathons" },
+  { icon: FolderOpen, label: "Projects", id: "projects" },
   { icon: Award, label: "Certificates", id: "certificates" },
   { icon: MessageCircle, label: "Contact", id: "contact" },
 ];
