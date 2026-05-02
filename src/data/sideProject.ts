@@ -35,6 +35,7 @@ export const sideProjects = [
       "LLaMA",
     ],
     type: "Personal Project",
+    badge: "Hackathon Winner",
     link: "https://forgeos-8k8r6.ondigitalocean.app/",
     github: "https://github.com/phamthanhhang208/forgeOS",
   },
