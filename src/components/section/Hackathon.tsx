@@ -1,27 +1,27 @@
-import { ExternalLink, Github, Globe } from "lucide-react";
+import { Calendar, ExternalLink, Github, Globe, Trophy } from "lucide-react";
 import { useTheme } from "../theme-provider";
-import { sideProjects } from "@/data";
+import { hackathons } from "@/data";
 import { Button } from "../ui/button";
 
-export const Project = () => {
+export const Hackathon = () => {
   const { theme } = useTheme();
   const isDarkMode = theme === "dark";
 
   return (
     <section
-      id="projects"
+      id="hackathons"
       className={`py-20 px-6 border-t ${
         isDarkMode ? "border-gray-800" : "border-gray-200"
       }`}
     >
       <div className="max-w-5xl mx-auto">
-        <h3 className="text-3xl font-bold mb-4">Side Projects</h3>
+        <h3 className="text-3xl font-bold mb-4">Hackathons</h3>
         <p className={`mb-8 ${isDarkMode ? "text-gray-400" : "text-gray-600"}`}>
-          Personal projects I've built to explore new technologies and solve
-          interesting problems.
+          Projects shipped against the clock — building, learning, and
+          competing alongside other developers.
         </p>
         <div className="grid md:grid-cols-2 gap-6">
-          {sideProjects.map((project, index) => (
+          {hackathons.map((h, index) => (
             <div
               key={index}
               className={`p-6 rounded-xl border transition-all hover:scale-[1.02] ${
@@ -30,13 +30,19 @@ export const Project = () => {
                   : "border-gray-200 hover:border-gray-300 hover:shadow-md"
               }`}
             >
-              <div className="flex items-start justify-between mb-2">
+              {"award" in h && h.award && (
+                <div className="flex items-center gap-1.5 mb-3 w-fit px-2.5 py-1 rounded-full bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 text-xs font-medium">
+                  <Trophy className="w-3 h-3" />
+                  {h.award}
+                </div>
+              )}
+              <div className="flex items-start justify-between mb-1">
                 <h4 className="text-xl font-semibold flex items-center gap-2">
-                  {project.title}
-                  {project.github && (
+                  {h.title}
+                  {"github" in h && h.github && (
                     <Button variant="ghost" size="sm">
                       <a
-                        href={project.github}
+                        href={h.github}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -44,10 +50,10 @@ export const Project = () => {
                       </a>
                     </Button>
                   )}
-                  {project.link && (
+                  {"link" in h && h.link && (
                     <Button variant="ghost" size="sm">
                       <a
-                        href={project.link}
+                        href={h.link}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -55,8 +61,20 @@ export const Project = () => {
                       </a>
                     </Button>
                   )}
-                  {"customLinks" in project &&
-                    project.customLinks?.map((cl, i) => (
+                  {h.devpost && (
+                    <Button variant="ghost" size="sm">
+                      <a
+                        href={h.devpost}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="Devpost"
+                      >
+                        <ExternalLink />
+                      </a>
+                    </Button>
+                  )}
+                  {"customLinks" in h &&
+                    h.customLinks?.map((cl, i) => (
                       <Button key={i} variant="ghost" size="sm">
                         <a
                           href={cl.url}
@@ -70,16 +88,30 @@ export const Project = () => {
                     ))}
                 </h4>
               </div>
-
+              <p
+                className={`text-sm font-medium mb-1 ${
+                  isDarkMode ? "text-gray-300" : "text-gray-700"
+                }`}
+              >
+                {h.event}
+              </p>
+              <div
+                className={`flex items-center gap-1.5 text-xs mb-4 ${
+                  isDarkMode ? "text-gray-500" : "text-gray-500"
+                }`}
+              >
+                <Calendar className="w-3 h-3" />
+                {h.date}
+              </div>
               <p
                 className={`mb-4 text-sm ${
                   isDarkMode ? "text-gray-400" : "text-gray-600"
                 }`}
               >
-                {project.description}
+                {h.description}
               </p>
               <div className="flex flex-wrap gap-2">
-                {project.tags.map((tag, i) => (
+                {h.tags.map((tag, i) => (
                   <span
                     key={i}
                     className={`px-2 py-1 rounded text-xs ${

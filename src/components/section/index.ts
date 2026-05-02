@@ -5,3 +5,4 @@ export * from "./Contact";
 export * from "./Certificate";
 export * from "./WorkExperience";
 export * from "./Project";
+export * from "./Hackathon";

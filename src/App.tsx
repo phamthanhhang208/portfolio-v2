@@ -8,6 +8,7 @@ import {
   Contact,
   WorkExperience,
   Project,
+  Hackathon,
 } from "@/components/section";
 import { Analytics } from "@vercel/analytics/react";
 
@@ -21,6 +22,7 @@ function App() {
         <Skill />
         <WorkExperience />
         <Project />
+        <Hackathon />
         <Certificates />
         <Contact />
         <DockNavigation />
